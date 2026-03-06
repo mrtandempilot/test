@@ -1,40 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Turkish CRM MVP (Next.js + Supabase)
 
-## Getting Started
+Bu proje, müşteri yönetimi ve görev takibi yapabileceğiniz, Türkçe arayüze sahip hızlı bir CRM MVP prototipidir.
 
-First, run the development server:
+## 🚀 Teknolojiler
+
+- **Frontend**: [Next.js](https://nextjs.org/) (Pages Router)
+- **Backend/Database**: [Supabase](https://supabase.com/)
+- **Dil**: JavaScript + Vanilla CSS
+
+## 📂 Proje Yapısı
+
+- `pages/index.js`: Ana Dashboard. Müşteri listesini gösterir.
+- `pages/customers/new.js`: Yeni müşteri ekleme formu.
+- `pages/tasks/new.js`: Müşterilere özel görev atama formu.
+- `lib/supabaseClient.js`: Supabase bağlantı ayarları.
+- `styles/globals.css`: Uygulamanın genel tasarımı.
+- `schema.sql`: Veritabanı tablolarını oluşturmak için gerekli SQL kodları.
+
+## ⚙️ Kurulum ve Çalıştırma
+
+### 1. Veritabanı Hazırlığı
+Supabase Dashboard'unuzda **SQL Editor** kısmına gidin ve projedeki `schema.sql` dosyasının içeriğini oraya yapıştırıp çalıştırın. Bu işlem `customers` ve `tasks` tablolarını oluşturacaktır.
+
+### 2. Ortam Değişkenleri
+`.env.local` dosyasında Supabase URL ve Anon Key bilgilerinizin doğru olduğundan emin olun.
+
+### 3. Yerel Çalıştırma
+Proje dizininde aşağıdaki komutları çalıştırın:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışmaya başlayacaktır.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🛠️ Sorun Giderme
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **Hata: Could not find column...**: SQL Editor'de şemayı güncellediğinizden emin olun ve gerekirse `Reload Schema Cache` yapın.
+- **Hata: Row-level security policy**: MVP aşamasında RLS'i devre dışı bırakmak için `ALTER TABLE ... DISABLE ROW LEVEL SECURITY;` komutunu kullanabilirsiniz.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📄 Lisans
+Bu proje geliştirme ve test amaçlıdır.
